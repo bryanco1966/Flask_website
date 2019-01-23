@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+  <form  method="POST">
+    {{form.hidden_tag()}}
+    {{form.party.label}}{{form.party}}<br>
+    {{form.age.label}}{{form.age}}<br>
+    {{form.education.label}}{{form.education}}<br>
+    {{form.climate_change.label}}{{form.climate_change}}<br>
+    {{form.submit()}}
+  </form>
+
+
+
+
+{% endblock content %}

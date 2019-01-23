@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+  <form  method="POST">
+
+    <div class="form group">
+
+    </div>
+    {{form.hidden_tag()}}
+
+    <div class="form group">
+    {{form.email.label(class='form-group')}}{{form.email}}<br>
+    </div>
+
+
+    {{form.username.label}}{{form.username}}<br>
+
+    {{form.password.label}}{{form.password}}<br>
+
+
+    {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
+
+    {{form.submit()}}
+  </form>
+
+{% endblock %}
