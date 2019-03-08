@@ -13,7 +13,7 @@ class User(db.Model,UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    profile_image = db.Column(db.String(20), nullable= False, default='default_profile.png')
+    profile_image = db.Column(db.String(20), nullable= False, default='dose-juice-1184488-unsplash.jpg')
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
@@ -40,16 +40,15 @@ class BlogPost(db.Model):
 
     users = db.relationship(User)
 
-    id = db.Column(db.Integer,primary_key=True)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable=False)
-
-    date = db.Column(db.DateTime,nullable=False,default=datetime.utcnow)
-    title = db.Column(db.String(140),nullable=False)
-    text = db.Column(db.Text,nullable=False)
+    id       = db.Column(db.Integer,primary_key=True)
+    user_id  = db.Column(db.Integer,db.ForeignKey('users.id'),nullable=False)
+    date     = db.Column(db.DateTime,nullable=False,default=datetime.utcnow)
+    title    = db.Column(db.String(140),nullable=False)
+    text     = db.Column(db.Text,nullable=False)
 
     def __init__(self,title,text,user_id):
-        self.title = title
-        self.text = text
+        self.title   = title
+        self.text    = text
         self.user_id = user_id
 
     def __repr__(self):
@@ -59,19 +58,23 @@ class Survey(db.Model):
 
         users = db.relationship(User)
 
-        id = db.Column(db.Integer,primary_key=True)
-        user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable=False)
-        party = db.Column(db.Integer, nullable=False)
-        age  = db.Column(db.Integer, nullable=False)
-        education = db.Column(db.Integer, nullable=False)
+        id           = db.Column(db.Integer,primary_key=True)
+        user_id      = db.Column(db.Integer,db.ForeignKey('users.id'),nullable=False)
+        age          = db.Column(db.Integer, nullable=False)
+        gender       = db.Column(db.Integer, nullable=False)
+        height       = db.Column(db.Integer, nullable=False)
+        start_weight = db.Column(db.Integer, nullable=False)
+        end_weight   = db.Column(db.Integer, nullable=False)
+        experience  = db.Column(db.Text, nullable=False)
 
-        climate_change = db.Column(db.Integer, nullable=False)
-
-        def __init__(self, party, age, education, climate_change):
-            self.party = party
-            self.age   = age
-            self.education = education
-            self.climate_change = climate_change
+        def __init__(self, age, gender, height, start_weight, end_weight, experience, user_id):
+            self.age           = age
+            self.gender        = gender
+            self.height        = height
+            self.start_weight  = start_weight
+            self.end_weight    = end_weight
+            self.experience    = experience
+            self.user_id       = user_id
 
         def __repr__(self):
-            return f"Party: {self.party} -- Age: {self.age} -- education {self.education}"
+            return f"ID: {self.id} -- Age: {self.age} -- gender {self.gender}"

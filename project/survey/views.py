@@ -13,10 +13,12 @@ def complete_survey():
 
     if form.validate_on_submit():
 
-        survey = Survey(party          =form.party.data,
-                        age            =form.age.data,
-                        education      =form.education.data,
-                        climate_change =form.climate_change.data
+        survey = Survey(age            =form.age.data,
+                        gender         =form.gender.data,
+                        height         =form.height.data,
+                        start_weight   =form.start_weight.data,
+                        end_weight     =form.end_weight.data,
+                        experience     =form.experience.data,
                         user_id        =current_user.id
                         )
         db.session.add(survey)
@@ -24,5 +26,5 @@ def complete_survey():
         flash("Thanks for completing the survey")
         return redirect(url_for('core.index'))
 
-        
+
     return render_template('survey.html',form=form)

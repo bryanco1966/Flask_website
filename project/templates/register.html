@@ -13,13 +13,17 @@
     {{form.email.label(class='form-group')}}{{form.email}}<br>
     </div>
 
+    <div class="form group">
+    {{form.username.label(class='form-group')}}{{form.username}}<br>
+    </div>
 
-    {{form.username.label}}{{form.username}}<br>
+    <div class="form group">
+    {{form.password.label(class='form-group')}}{{form.password}}<br>
+    </div>
 
-    {{form.password.label}}{{form.password}}<br>
-
-
-    {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
+    <div class="form group">
+    {{form.pass_confirm.label(class='form-group')}}{{form.pass_confirm}}<br>
+    </div>
 
     {{form.submit()}}
   </form>

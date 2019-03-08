@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
   <div class="jumbotron">
-    <h1>Global Warming Survey Site</h1>
-    <p>Welcome to our site feel free to post your feeling about global warming and take our survey</p>
+    <h1>Welcome to Whole 30 Blog and Survey Site</h1>
+    <br>
+    <p>Welcome, this site is designed to share information on the Whole 30.  You can sign up and post your experiences about your journey through the Whole 30 or ask questions of other who participated.  Also be sure to take the survey in order to provide data about the effectiveness and results you had after the Whole 30.  This will allow for the use of machine learning to identify what are typical results of the eating plan</p>
+    <br>
+    <a href="{{url_for('survey.complete_survey')}}">Survey</a>
   </div>
 
   <div class="container">
@@ -22,6 +25,7 @@
         <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="btn btn-primary">Read Blog Post</a>
       </div>
     </div>
+
    {% endfor %}
 
    <nav aria-label="Page navigation example">

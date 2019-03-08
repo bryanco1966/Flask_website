@@ -1,17 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-
+<br>
+<br>
+<h1>Welcome {{current_user.username}} thanks for taking our survey</h1>
+<br>
+<br>
+<div class="form-group">
 
 
   <form  method="POST">
     {{form.hidden_tag()}}
-    {{form.party.label}}{{form.party}}<br>
-    {{form.age.label}}{{form.age}}<br>
-    {{form.education.label}}{{form.education}}<br>
-    {{form.climate_change.label}}{{form.climate_change}}<br>
+    {{form.age.label(class='form-group')}}{{form.age}}<br>
+    {{form.gender.label(class='form-group')}}{{form.gender}}<br>
+    {{form.height.label(class='form-group')}}{{form.height}}<br>
+    {{form.start_weight.label(class='form-group')}}{{form.start_weight}}<br>
+    {{form.end_weight.label(class='form-group')}}{{form.end_weight}}<br>
+    {{form.experience.label(class='form-group')}}
+    {{form.experience(class='form-control form-control-lg')}}<br>
     {{form.submit()}}
-  </form>
 
+  </form>
+</div>
 
 
 
