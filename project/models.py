@@ -13,7 +13,7 @@ class User(db.Model,UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    profile_image = db.Column(db.String(20), nullable= False, default='dose-juice-1184488-unsplash.jpg')
+    profile_image = db.Column(db.String(20), nullable= False, default='default_profile.png')
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
@@ -65,7 +65,7 @@ class Survey(db.Model):
         height       = db.Column(db.Integer, nullable=False)
         start_weight = db.Column(db.Integer, nullable=False)
         end_weight   = db.Column(db.Integer, nullable=False)
-        experience  = db.Column(db.Text, nullable=False)
+        experience   = db.Column(db.Text, nullable=False)
 
         def __init__(self, age, gender, height, start_weight, end_weight, experience, user_id):
             self.age           = age
